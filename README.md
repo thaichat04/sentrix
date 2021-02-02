@@ -30,12 +30,15 @@ limitations under the License.
 - [x] Pipeline Transformer integration
 - [x] Business Use case
 - [x] (Simple) API implementation
-- [ ] Deploy on Cloud
-- [ ] Load test, monitoring by Gragana/Prometheus
+- [x] Deploy on Cloud (GKE)
+- [x] Benchmark & loading test
+- [ ] Monitoring by Grafana/Prometheus
 
 ## Online demos
-- [ ] KGE deployement: http://35.202.245.141/version
+- KGE deployement: http://35.202.245.141/version
 
+
+## curl
 ```shell script
 >>> curl -X POST -F 'input=give your input (happy or not happy) here' http://host:5000/v0/classify
 [
@@ -44,6 +47,8 @@ limitations under the License.
         "score": 0.9605754017829895
     }
 ]
+
+curl -X POST -F 'input=give your input (happy or not happy) here' http://35.202.245.141/v0/classify
 ```
 
 ## Build & Run
