@@ -76,10 +76,11 @@ In some case, analysis of feedback must be in real time to be react ASAP from cu
 * Exploitation: BI & dashboard by account
 
 ## Scalability
- 1 node: online prediction (hardware, prediction optimisation)
- N nodes: load balancing
- batch processing (API)
+* 1 node: online prediction (hardware, prediction optimisation)
+* N nodes: load balancing
+* batch processing (API)
 
 ## Availability
-- safety shutdown
-- healthcheck
+* safety shutdown
+* healthcheck
+* crash recovery
