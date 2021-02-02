@@ -1,9 +1,9 @@
-FROM python:3.8-buster
+FROM huggingface/transformers-pytorch-cpu
 
 WORKDIR /wd
-COPY app/requirements.txt /wd/
+ADD / /wd
 
 RUN pip install --upgrade pip \
-    &&  pip install --trusted-host pypi.python.org --requirement wd/requirements.txt
+    &&  pip install --trusted-host pypi.python.org --requirement /wd/requirements.txt
 
-CMD ["python", "app.py"]
+CMD ["python3", "-u" , "/wd/app.py", "--conf", "/wd/configuration.yaml", "server"]
