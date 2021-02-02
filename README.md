@@ -25,8 +25,16 @@ limitations under the License.
 </h3>
 
 
-## Online demos
+### DoD
 
+- [x] Pipeline Transformer integration
+- [x] Business Use case
+- [x] (Simple) API implementation
+- [ ] Deploy on Cloud
+- [ ] Load test, monitoring by Gragana/Prometheus
+
+## Online demos
+- [ ] url to be here
 ```shell script
 >>> curl -X POST -F 'input=give your input (happy or not happy) here' http://host:5000/v0/classify
 [
@@ -57,7 +65,6 @@ In some case, analysis of feedback must be in real time to be react ASAP from cu
 * Input (limited max 250 words) in plain text (no HTML or other formats)
 * Output: Nagative/Positive + Score
 * Response time < 50ms
-
 
 ### TODO
 * Automatic build/version/release setup
