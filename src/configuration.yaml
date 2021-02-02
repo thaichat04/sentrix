@@ -1,0 +1,46 @@
+deploy_id: ${SENTRIX_DEPLOY_ID:-}
+
+site:
+    host: ${SENTRIX_FLASK_HOST:-0.0.0.0}
+    port: ${SENTRIX_FLASK_PORT:-5000}
+
+server:
+    run_mode: ${SENTRIX_SERVER_RUN_MODE:-normal}
+    startup_script: ${SENTRIX_STARTUP_SCRIPT:-}
+    shutdown_script: ${SENTRIX_SHUTDOWN_SCRIPT:-}
+    word_digits_threshold: ${SENTRIX_WORD_DIGITS_THRESHOLD:-0.0}
+    palette_filter: {${SENTRIX_PALETTE_FILTER:-}}
+
+debug:
+    host: ${SENTRIX_DEBUG_HOST:-}
+    port: ${SENTRIX_DEBUG_PORT:-}
+    task_same_process: ${DEBUG_TASK_SAME_PROCESS:-false}
+
+observability:
+    logging:
+        version: 1
+        formatters:
+            default:
+                format: '[%(asctime)s %(levelname)s %(correlationId)s %(threadName)s] %(message)s'
+                datefmt: '%Y-%m-%d %H:%M:%S'
+        filters:
+            correlation_id:
+                (): app.observability.correlation_id.CorrelationIdFilter
+        handlers:
+            console:
+                formatter: default
+                class: logging.StreamHandler
+                filters: [correlation_id]
+        loggers:
+            '':
+                level: ${SENTRIX_LOG_LEVEL:-INFO}
+                handlers: [console]
+            'werkzeug':
+                level: ERROR
+
+    metrics:
+        host: ${SENTRIX_METRICS_HOST:-0.0.0.0}
+        port: ${SENTRIX_METRICS_PORT:-9099}
+        schedule: '${SENTRIX_METRICS_SCHEDULE:-*/2 * * * *}'
+        max_duration_seconds: ${SENTRIX_METRICS_MAX_DURATION_SECONDS:-100}
+        nb_workers: ${SENTRIX_METRICS_NB_WORKERS:-10}
