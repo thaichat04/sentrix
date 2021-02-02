@@ -50,7 +50,7 @@ limitations under the License.
 >>> docker build --tag sentrix:tag_version
 
 >>> docker pull thaichat04/sentrix
->>> docker run --it -p 5000:5000 -e PYTORCH_TRANSFORMERS_CACHE=/cache/pyt -v /tmp/pyt:/cache/pyt sentrix:tag_version
+>>> docker run -it -p 5000:5000 -e PYTORCH_TRANSFORMERS_CACHE=/cache/pyt -v /tmp/pyt:/cache/pyt thaichat04/sentrix:tag_version
 ```
 
 
