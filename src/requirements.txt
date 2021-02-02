@@ -2,5 +2,6 @@
 # ********* KEEP THIS FILE SORTED *********, thanks
 #
 Flask>=1.0.2
+pyaml
 prometheus_client
 transformers
