@@ -35,7 +35,7 @@ limitations under the License.
 - [ ] Monitoring by Grafana/Prometheus
 
 ## Online demos
-- KGE deployement: http://35.202.245.141/version
+- GKE deployement: http://35.202.245.141/version
 
 
 ## curl
